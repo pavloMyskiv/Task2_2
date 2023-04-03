@@ -1,0 +1,77 @@
+
+.dish_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @include for-size(phone) {
+    display: flex;
+    flex-direction: column;
+  }
+  .dish_item {
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid $main-color;
+    border-radius: 5px;
+    @include for-size(tablet-portrait) {
+      flex-direction: column;
+    }
+    @include for-size(phone) {
+      flex-direction: row;
+    }
+    .dish_image {
+      width: 33.333%;
+      margin: 5px;
+      border: 5px solid $main-color;
+      border-radius: 10px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .dish_text {
+      width: 66.666%;
+      padding: 5px;
+      align-self: flex-start;
+      @include for-size(tablet-portrait) {
+        align-self: center;
+        width: 90%;
+      }
+      @include for-size(phone) {
+        align-self: flex-start;
+        width: 66.666%;
+      }
+      .dish__main {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        border-bottom: 2px solid $main-color;
+        h3 {
+          font-size: 20px;
+          margin: 5px;
+          @include for-size(tablet-landscape) {
+            font-size: 18px;
+          }
+        }
+        p {
+          font-size: 16px;
+          margin: 5px;
+          color: $main-color;
+          @include for-size(tablet-landscape) {
+            font-size: 14px;
+          }
+        }
+      }
+      .dish__description {
+        font-size: 16px;
+        @include for-size(tablet-landscape) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+.unvisible {
+  display: none;
+}
