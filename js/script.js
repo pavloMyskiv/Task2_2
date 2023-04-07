@@ -74,7 +74,7 @@ const dishArray = [
     img: './img/veganCurry.jpg',
   },
   {
-    type: 'drink',
+    type: 'drinks',
     name: 'Margarita',
     cost: 10,
     description:
@@ -82,7 +82,7 @@ const dishArray = [
     img: './img/margarita.jpg',
   },
   {
-    type: 'drink',
+    type: 'drinks',
     name: 'Old Fashioned',
     cost: 12,
     description:
@@ -90,7 +90,7 @@ const dishArray = [
     img: './img/oldFashioned.jpg',
   },
   {
-    type: 'drink',
+    type: 'drinks',
     name: 'Mango Lassi',
     cost: 6,
     description:
@@ -98,7 +98,7 @@ const dishArray = [
     img: './img/mangoLassi.jpg',
   },
   {
-    type: 'drink',
+    type: 'drinks',
     name: 'Iced Matcha Latte',
     cost: 5.49,
     description:
@@ -106,7 +106,7 @@ const dishArray = [
     img: './img/icedMatchaLatte.jpg',
   },
   {
-    type: 'drink',
+    type: 'drinks',
     name: 'Strawberry Lemonade',
     cost: 3.99,
     description:
@@ -115,28 +115,8 @@ const dishArray = [
   },
 ];
 
-const dishListContainer = document.getElementById('dish_list_container');
-
-const btnAll = {
-  type: 'all',
-  body: document.getElementById('all'),
-};
-const btnBreakfast = {
-  type: 'breakfast',
-  body: document.getElementById('breakfast'),
-};
-const btnLunch = {
-  type: 'lunch',
-  body: document.getElementById('lunch'),
-};
-const btnDinner = {
-  type: 'dinner',
-  body: document.getElementById('dinner'),
-};
-const btnDrinks = {
-  type: 'drink',
-  body: document.getElementById('drinks'),
-};
+const dishListContainer = document.querySelector('.dish_list');
+const buttons = document.querySelectorAll('.button');
 
 const generateItemHTML = (item) => {
   return (
@@ -164,30 +144,20 @@ const generateItemHTML = (item) => {
 </div>`
   );
 };
-const renderSelectedItems = (btn, array, container) => {
+const renderSelectedItems = (button, array, container) => {
   let listHTML = ``;
   array.forEach((item) => {
-    if (item.type == btn.type || btn.type == `all`) {
+    if (item.type == button.id || button.id == `all`) {
       listHTML = listHTML + generateItemHTML(item);
     }
   });
   container.innerHTML = listHTML;
 };
 
-renderSelectedItems(btnAll, dishArray, dishListContainer);
+renderSelectedItems(buttons[0], dishArray, dishListContainer);
 
-btnAll.body.addEventListener('click', function () {
-  renderSelectedItems(btnAll, dishArray, dishListContainer);
-});
-btnBreakfast.body.addEventListener('click', function () {
-  renderSelectedItems(btnBreakfast, dishArray, dishListContainer);
-});
-btnLunch.body.addEventListener('click', function () {
-  renderSelectedItems(btnLunch, dishArray, dishListContainer);
-});
-btnDinner.body.addEventListener('click', function () {
-  renderSelectedItems(btnDinner, dishArray, dishListContainer);
-});
-btnDrinks.body.addEventListener('click', function () {
-  renderSelectedItems(btnDrinks, dishArray, dishListContainer);
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    renderSelectedItems(button, dishArray, dishListContainer);
+  });
 });
