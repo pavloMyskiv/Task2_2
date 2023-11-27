@@ -1,0 +1,45 @@
+
+header {
+  text-align: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: $bg-color;
+  h1 {
+    margin: 30px 5px 5px 5px;
+    font-size: 50px;
+    color: $main-color;
+    @include for-size(phone) {
+      font-size: 30px;
+      margin: 15px 5px 5px 5px;
+    }
+  }
+  .buttons {
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .button {
+      display: block;
+      margin: 10px;
+      padding: 5px;
+      color: $main-color;
+      font-size: 16px;
+      border: 3px solid $main-color;
+      border-radius: 10px;
+      transition: all 0.5s ease-in;
+      cursor: pointer;
+      &:hover {
+        color: #fff;
+        background-color: $main-color;
+        transform: scale(1.1);
+      }
+      @include for-size(phone) {
+        margin: 5px;
+        font-size: 14px;
+      }
+    }
+  }
+}

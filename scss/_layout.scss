@@ -1,0 +1,13 @@
+
+@import '../scss/variables';
+
+body {
+  font-family: Arial;
+  margin: 0;
+  background-color: $bg-color;
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: $wrap-width;
+  padding: 5px;
+}
